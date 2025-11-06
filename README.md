@@ -22,7 +22,7 @@ This site serves as a digital home for my tabletop creations, one-shot adventure
 - **Deployment:** GitHub Pages  
 - **Design:** Custom dark UI with Iceland font and grid-based layout
 
----\
+---
 
 ### 💡 Common Front Matter Variables
 
