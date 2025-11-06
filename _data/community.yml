@@ -1,0 +1,22 @@
+stats:
+  - label: "Members"
+    value: "18+"
+  - label: "Active Daily"
+    value: "2+"
+  - label: "Weekly Events"
+    value: "1+"
+  - label: "Campaigns Running"
+    value: "1+"
+features:
+  - icon: <i class="fa-solid fa-dice-d20"></i>
+    title: Looking for Group
+    desc: Find players or join campaigns
+  - icon: <i class="fa-solid fa-book"></i>
+    title: Resources
+    desc: Exclusive tips and content
+  - icon: <i class="fa-solid fa-user"></i>
+    title: Character Showcase
+    desc: Share and get feedback
+  - icon: <i class="fa-solid fa-bullseye"></i>
+    title: Weekly Events
+    desc: One-shots and tournaments

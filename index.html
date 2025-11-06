@@ -1,0 +1,126 @@
+---
+title: "Unbound. Unbothered. Deviant."
+layout: splash
+permalink: /
+header:
+  overlay_color: "#000"
+  overlay_filter: "0.5"
+  overlay_image: /assets/img/hero-img.png
+  # caption: "Photo credit: [**Unsplash**](https://unsplash.com)"
+excerpt: "A community for GMs, players, and gamers."
+intro: 
+  - excerpt: 'Nullam suscipit et nam, tellus velit pellentesque at malesuada, enim eaque. Quis nulla, netus tempor in diam gravida tincidunt, *proin faucibus* voluptate felis id sollicitudin. Centered with `type="center"`'
+---
+
+<section style="margin-top:3rem;">
+  <h2>Current Games</h2>
+  <p>Active campaigns across different systems</p>
+
+  <div class="games-grid one-per-row">
+  {% assign active = site.games | where_exp:'g','g.status' %}
+  {% for g in active limit:4 %}
+    <article class="game-card">
+      {% if g.thumb %}
+        <img src="{{ g.thumb | relative_url }}" alt="">
+      {% endif %}
+      <div class="game-card-content">
+        <div class="game-top">
+          {% assign status = g.status | downcase %}
+          <span class="status-pill {{ status }}">{{ g.status }}</span>
+          <div class="sys">{{ g.system | default: "System" }}</div>
+        </div>
+
+        <h3><a href="{{ g.url | relative_url }}">{{ g.title }}</a></h3>
+        <p class="excerpt">{{ g.subtitle }}</p>
+        <p class="excerpt">{{ g.short-description }}</p>
+
+        <div class="game-meta">
+          {% if g.schedule %}
+          <div class="row">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M7 2h2v2h6V2h2v2h3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h3V2Zm13 6H4v12h16V8Z"/></svg>
+            <span>{{ g.schedule }}</span>
+          </div>
+          {% endif %}
+          {% if g.players %}
+          <div class="row">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M16 11a4 4 0 1 0-4-4a4 4 0 0 0 4 4Zm-8 1a3 3 0 1 0-3-3a3 3 0 0 0 3 3Zm0 2c-3.33 0-6 1.34-6 3v2h8v-2c0-1.66-2.67-3-6-3Zm8-1c-4 0-7 1.79-7 4v2h14v-2c0-2.21-3-4-7-4Z"/></svg>
+            <span>{{ g.players }} players</span>
+          </div>
+          {% endif %}
+        </div>
+      </div>
+    </article>
+  {% endfor %}
+</div>
+
+</section>
+
+
+<section style="margin-top:3rem;">
+  <h2>Digital Products</h2>
+  <p>Adventure, tools, and resources for your games</p>
+
+  <div class="products-grid">
+    {% for p in site.products limit:4 %}
+      <article class="product-card">
+        {% if p.thumb %}<img src="{{ p.thumb | relative_url }}" alt="">{% endif %}
+        <div class="body">
+          <div class="kicker">{{ p.category | default: "Resource" }}</div>
+          <h3><a href="{{ p.url | relative_url }}">{{ p.title }}</a></h3>
+          <p>{{ p.subtitle }}</p>
+          <div class="foot">
+            <strong>{{ p.price }}</strong>
+            <span>★ {{ p.rating | default: "4.8" }}</span>
+          </div>
+        </div>
+      </article>
+    {% endfor %}
+  </div>
+</section>
+
+<!-- <section style="margin-top:3rem;">
+  <h2>Blog</h2>
+  <p>Thoughts and insights from the table</p>
+  <div class="grid__wrapper" style="display:grid; grid-template-columns:repeat(auto-fit,minmax(320px,1fr)); gap:1rem;">
+    {% for post in site.posts limit:6 %}
+    <article class="card" style="background:#0d0d0d; border:1px solid #1d1d1d; border-radius:.5rem; padding:1rem;">
+      <div style="font-size:.75rem; opacity:.75; margin-bottom:.25rem;">{{ post.category | default: "GM Tips" }}</div>
+      <h3 style="margin:.25rem 0;"><a href="{{ post.url | relative_url }}">{{ post.title }}</a></h3>
+      <p style="opacity:.85;">{{ post.excerpt }}</p>
+      <div style="font-size:.85rem; opacity:.75;">{{ post.date | date: "%b %-d, %Y" }} &nbsp; • &nbsp; {{ post.reading_time | default: "6 min" }}</div>
+    </article>
+    {% endfor %}
+  </div>
+</section> -->
+
+<section style="margin-top:3rem;">
+  <h2>Community</h2>
+  <p>Join fellow TTRPG enthusiasts and gamers on Discord</p>
+
+  <!-- (optional) small stat cards can stay above if you like -->
+
+  <div class="community-card">
+    <h3 class="community-card__title">What You’ll Find</h3>
+    <p class="community-card__sub">A welcoming space for all players and GMs</p>
+
+    <div class="features-grid">
+      {% for f in site.data.community.features %}
+      <div class="feature">
+        {% if f.icon %}{{ f.icon }}{% endif %}
+        <div class="feature__text">
+          <div class="feature__title">{{ f.title | default: f }}</div>
+          {% if f.desc %}<div class="feature__desc">{{ f.desc }}</div>{% endif %}
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+
+    <hr class="community-card__rule" />
+
+    <a class="community-card__cta" href="https://discord.gg/WKc4RCm">
+      Join Discord Server
+    </a>
+
+    <p class="community-card__fine">Free to join · All levels welcome</p>
+  </div>
+</section>

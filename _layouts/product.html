@@ -1,0 +1,53 @@
+---
+layout: default
+---
+<div class="new-collection product-page">
+  <article class="product-hero">
+    {% if page.thumb %}
+      <img class="hero-img" src="{{ page.thumb | relative_url }}" alt="">
+    {% endif %}
+
+    <div class="hero-meta">
+      <h1>{{ page.title }}</h1>
+      {% if page.category %}<div class="kicker">{{ page.category }}</div>{% endif %}
+
+      {% if page.features %}
+        <ul class="hero-features">
+          {% for f in page.features limit:3 %}<li>{{ f }}</li>{% endfor %}
+        </ul>
+      {% endif %}
+
+      <div class="buybox">
+        <div class="price">
+          {% if page.sale_price and page.sale_price != "" %}
+            <span class="sale">{{ page.sale_price }}</span> <s>{{ page.price }}</s>
+          {% else %}
+            {{ page.price }}
+          {% endif %}
+        </div>
+
+        {% if page.buttons %}
+          <div class="actions">
+            {% for b in page.buttons %}
+              <a class="btn {{ b.kind | default: 'primary' }}" href="{{ b.url }}" target="_blank" rel="noopener">{{ b.label }}</a>
+            {% endfor %}
+          </div>
+        {% endif %}
+
+        <!-- <div class="submeta">
+          ★ {{ page.rating | default: "4.9" }} &nbsp; ⬇ {{ page.downloads | default: "1,000+" }}
+        </div> -->
+      </div>
+    </div>
+  </article>
+ {{ content }}
+  {% if page.includes %}
+    <section class="product-section">
+      <h2>What’s Included</h2>
+      <ul class="bullets">
+        {% for it in page.includes %}<li>{{ it }}</li>{% endfor %}
+      </ul>
+    </section>
+  {% endif %}
+
+</div>
