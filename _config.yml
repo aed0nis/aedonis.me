@@ -341,7 +341,7 @@ defaults:
     values:
       layout: single
       author_profile: false
-      share: true
+      share: false
 # _products
   - scope:
       path: "_products"
@@ -349,4 +349,4 @@ defaults:
     values:
       layout: single
       author_profile: false
-      share: true
+      share: false

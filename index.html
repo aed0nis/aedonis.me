@@ -13,7 +13,7 @@ intro:
 ---
 
 <section style="margin-top:3rem;">
-  <h2>Current Games</h2>
+  <h2>Current TTRPG Games</h2>
   <p>Active campaigns across different systems</p>
 
   <div class="games-grid one-per-row">
@@ -58,7 +58,7 @@ intro:
 
 <section style="margin-top:3rem;">
   <h2>Digital Products</h2>
-  <p>Adventure, tools, and resources for your games</p>
+  <p>Adventures, tools, and resources for your games</p>
 
   <div class="products-grid">
     {% for p in site.products limit:4 %}
@@ -70,7 +70,7 @@ intro:
           <p>{{ p.subtitle }}</p>
           <div class="foot">
             <strong>{{ p.price }}</strong>
-            <span>★ {{ p.rating | default: "4.8" }}</span>
+            <!-- <span>★ {{ p.rating | default: "4.8" }}</span> -->
           </div>
         </div>
       </article>
@@ -101,7 +101,7 @@ intro:
 
   <div class="community-card">
     <h3 class="community-card__title">What You’ll Find</h3>
-    <p class="community-card__sub">A welcoming space for all players and GMs</p>
+    <p class="community-card__sub">A welcoming, LGBTQ friendly space for all players and GMs. 21+ age group.</p>
 
     <div class="features-grid">
       {% for f in site.data.community.features %}
